@@ -66,11 +66,17 @@ describe('ChatComponent', () => {
     expect(component.inRoom).toBeFalse();
     expect(component.messages).toEqual([]);
   });
+  
+  it('should enable the JoinBtn to true and disable leaveBtn while invoking getMessages function',()=>{
+    component.getMessages()
+    expect(component.joinBtn).toBeTrue();
+    expect(component.leaveBtn).toBeFalse();
+  });
 
-  // it('should get UserTenentId from api call on function enterToken',fakeAsync(()=>{
-  //   component.sendMessage({message:'hello bhai'},'sender');
-  //   tick();
-  //   expect(component.messages).toEqual(mockChat);
-  // }));
+  it('should enable the LeaveBtn to true while invoking leave Button',()=>{
+    component.leaveRoom()
+    expect(component.leaveBtn).toBeTrue();
+  });
+
 
 });
